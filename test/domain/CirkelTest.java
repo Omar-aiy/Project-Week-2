@@ -72,14 +72,4 @@ public class CirkelTest {
         new Cirkel(geldigMiddelpunt, 0);
     }
 
-
-
-
-
-
-
-
-
-
-
 }
