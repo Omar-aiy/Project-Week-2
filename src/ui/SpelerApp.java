@@ -27,7 +27,7 @@ public class SpelerApp {
         root.add(invoerNaamVeld, 1, 0);
 
         invoerNaamVeld.setOnAction(eventIngaveNaam -> {
-            //try {
+            try {
                 speler = new Speler(invoerNaamVeld.getText());
                 root.getChildren().clear();
 
@@ -35,13 +35,13 @@ public class SpelerApp {
                 uitvoer.setText(speler.toString());
                 root.add(uitvoer, 0, 1);
 
-           /* } catch (DomainException e) {
+           } catch (DomainException e) {
                 invoerNaamVeld.clear();
 
                 foutenboodschap.setTitle("Warning");
                 foutenboodschap.setContentText(e.getMessage());
                 foutenboodschap.showAndWait();
-            }*/
+            }
         });
 
 
