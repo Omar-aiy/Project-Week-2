@@ -55,3 +55,4 @@ public class SpelerTest {
         assertFalse(speler.equals(null));
     }
 }
+
