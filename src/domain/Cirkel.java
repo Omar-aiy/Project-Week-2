@@ -8,9 +8,9 @@ public class Cirkel {
     private int radius;
 
     public Cirkel(Punt middelpunt, int straal) {
-        if (middelpunt == null) throw new IllegalArgumentException();
-        if (straal <= 0) throw new IllegalArgumentException();
-        if (straal > Math.min(middelpunt.getX(), middelpunt.getY())) throw new IllegalArgumentException();
+        if (middelpunt == null) throw new DomainException();
+        if (straal <= 0) throw new DomainException();
+        if (straal > Math.min(middelpunt.getX(), middelpunt.getY())) throw new DomainException();
         this.middelPunt = middelpunt;
         this.radius = straal;
     }
