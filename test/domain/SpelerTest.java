@@ -31,18 +31,18 @@ public class SpelerTest {
         assertEquals(0, speler.getScore());
     }
 
-    @Test (expected = DomainException.class)
+    @Test(expected = DomainException.class)
     public void Speler_moet_exception_gooien_als_naam_null() {
         speler = new Speler(null);
     }
 
-    @Test (expected = DomainException.class)
+    @Test(expected = DomainException.class)
     public void Speler_moet_exception_gooien_als_naam_bestaat_uit_enkel_spaties() {
         speler = new Speler("   ");
     }
 
     @Test
-    public void equals_moet_true_teruggeven_als_naam_en_score_gelijk_zijn(){
+    public void equals_moet_true_teruggeven_als_naam_en_score_gelijk_zijn() {
         speler.addToScore(positiveScore);
         Speler andereSpeler = new Speler(naam);
         andereSpeler.addToScore(positiveScore);
@@ -51,6 +51,7 @@ public class SpelerTest {
     }
 
     @Test
-    public void equals_moet_false_teruggeven_als_parameter_null(){
+    public void equals_moet_false_teruggeven_als_parameter_null() {
         assertFalse(speler.equals(null));
     }
+}

@@ -6,9 +6,10 @@ import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 
-import java.awt.*;
-import java.awt.Label;
-import java.awt.TextField;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+
+
 
 public class SpelerApp {
     private Label invoerNaamLabel;
@@ -26,7 +27,7 @@ public class SpelerApp {
         root.add(invoerNaamVeld, 1, 0);
 
         invoerNaamVeld.setOnAction(eventIngaveNaam -> {
-            try {
+            //try {
                 speler = new Speler(invoerNaamVeld.getText());
                 root.getChildren().clear();
 
@@ -34,14 +35,16 @@ public class SpelerApp {
                 uitvoer.setText(speler.toString());
                 root.add(uitvoer, 0, 1);
 
-            } catch (DomainException e) {
+           /* } catch (DomainException e) {
                 invoerNaamVeld.clear();
 
                 foutenboodschap.setTitle("Warning");
                 foutenboodschap.setContentText(e.getMessage());
                 foutenboodschap.showAndWait();
-            }
+            }*/
         });
+
+
 
 
     }

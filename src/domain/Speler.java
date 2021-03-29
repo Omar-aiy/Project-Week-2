@@ -1,6 +1,7 @@
 package domain;
 
 import java.util.Objects;
+import domain.DomainException;
 
 public class Speler {
     private String naam;
@@ -8,7 +9,7 @@ public class Speler {
 
     public Speler(String naam){
         if (naam == null || naam.trim().isEmpty()){
-            throw new IllegalArgumentException();
+            throw new DomainException();
         }
         this.naam=naam;
         this.score=0;
