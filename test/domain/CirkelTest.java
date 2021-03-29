@@ -117,6 +117,5 @@ public class CirkelTest {
     public void test_Cirkel_Met_null_als_middelpunt_Gooit_IllegalargumentException(){
         new Cirkel(null, 5);}
 
-      @Test()
 
 }
