@@ -40,9 +40,6 @@ public class Speler {
 
     @Override
     public String toString() {
-        return "Speler{" +
-                "naam='" + naam + '\'' +
-                ", score=" + score +
-                '}';
+        return naam + " heeft als score " + score;
     }
 }
