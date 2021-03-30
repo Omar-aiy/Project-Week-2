@@ -4,6 +4,10 @@ public class LijnStuk extends Vorm {
     private Punt startPunt;
     private Punt eindPunt;
 
+    public LijnStuk() {
+
+    }
+
     public LijnStuk(Punt startPunt, Punt eindPunt) {
         this.setStartEnEindPunt(startPunt, eindPunt);
     }
