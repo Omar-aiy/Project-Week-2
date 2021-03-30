@@ -1,19 +1,16 @@
 package domain;
-
-import org.w3c.dom.DOMException;
-
-public class Rechthoek {
+public class Omhullende {
     private Punt LinkerBovenhoek;
     private int Breedte;
     private int Hoogte;
 
-    public Rechthoek(Punt hoek, int b, int h){
-        if (b > 0) {
+    public Omhullende(Punt hoek, int b, int h){
+        if (b >= 0) {
             this.Breedte = b;
         } else {
             throw new DomainException("Cannot be less then zero");
         }
-        if (h > 0) {
+        if (h >= 0) {
             this.Hoogte = h;
         } else {
             throw new DomainException("Cannot be less then zero");
@@ -33,19 +30,26 @@ public class Rechthoek {
         return Breedte;
     }
 
-    public Omhullende getOmhullende(){
-        Omhullende a = new Omhullende(LinkerBovenhoek,Breedte,Hoogte);
-        return a;
-    }
-
     public int getHoogte() {
         return Hoogte;
     }
-     public String toString(){
-        return "Rechthoek: Linkerbovenhoek: " + getLinkerBovenhoek().toString() + " - breedte: " + getBreedte() + " - hoogte: " + getHoogte() + "\n" + getOmhullende().toString();
-     }
+    public int getMinimumX(){
+        return LinkerBovenhoek.getX();
+    }
+    public int getMaximumX(){
+        return LinkerBovenhoek.getX() + Breedte;
+    }
+    public int getMinimumY(){
+        return LinkerBovenhoek.getY();
+    }
+    public int getMaximumY(){
+        return LinkerBovenhoek.getY() + Hoogte;
+    }
+    public String toString(){
+        return "Omhullende: " + getLinkerBovenhoek().toString() + " - " + getBreedte() + " - " + getHoogte();
+    }
 
-     public boolean equals(Rechthoek a){
+    public boolean equals(Omhullende a){
         if (a == null){
             return false;
         } else {
@@ -55,5 +59,5 @@ public class Rechthoek {
                 return false;
             }
         }
-     }
+    }
 }
