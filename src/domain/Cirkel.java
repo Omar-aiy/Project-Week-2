@@ -1,9 +1,11 @@
 package domain;
 
+import javafx.scene.layout.Pane;
+
 import java.awt.*;
 import java.util.Objects;
 
-public class Cirkel {
+public class Cirkel implements Drawable{
     private Punt middelPunt;
     private int radius;
 
@@ -42,5 +44,10 @@ public class Cirkel {
     @Override
     public String toString() {
         return "Cirkel met middelpunt " + getMiddelPunt().toString() + " en straal " + getRadius();
+    }
+
+    @Override
+    public void teken(Pane root) {
+
     }
 }

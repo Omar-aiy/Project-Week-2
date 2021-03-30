@@ -1,5 +1,6 @@
 package ui;
 
+
 import domain.LijnStuk;
 import domain.Punt;
 import javafx.scene.control.Alert;
