@@ -11,7 +11,7 @@ public class FxCirkelApp extends Application {
         @Override
         public void start(Stage primaryStage) {
             GridPane root = new GridPane();
-            Scene scene = new Scene(root, 300,50);
+            Scene scene = new Scene(root, 600,300);
 
             new CirkelApp(root);
 

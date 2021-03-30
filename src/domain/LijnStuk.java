@@ -1,15 +1,16 @@
 package domain;
-
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 
 public class LijnStuk extends Vorm {
     private Punt startPunt;
     private Punt eindPunt;
 
-    public LijnStuk() {
 
-    }
 
-    public LijnStuk(Punt startPunt, Punt eindPunt) {
+
+    public LijnStuk( Punt startPunt, Punt eindPunt) {
+
         this.setStartEnEindPunt(startPunt, eindPunt);
     }
 
@@ -29,6 +30,12 @@ public class LijnStuk extends Vorm {
         return eindPunt;
     }
 
+    public Omhullende getOmhullende(){
+        Punt punt= new Punt(Math.min(startPunt.getX(),eindPunt.getX()), Math.min(startPunt.getY(),eindPunt.getY()));
+        Omhullende a = new Omhullende(punt,Math.abs((startPunt.getX()-eindPunt.getX())),Math.abs((startPunt.getY()-eindPunt.getY())));
+        return a;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -40,5 +47,10 @@ public class LijnStuk extends Vorm {
     @Override
     public String toString() {
         return "Lijn: startpunt: " + this.startPunt + " - eindpunt: " + this.eindPunt;
+    }
+
+    @Override
+    public void teken(Pane root) {
+
     }
 }

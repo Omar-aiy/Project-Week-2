@@ -6,8 +6,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
-
-public class FxWoordRadenApp extends Application {
+/*
+public class FxWoordRadenApp extends Application {}
 
 
     @Override
@@ -31,3 +31,5 @@ public class FxWoordRadenApp extends Application {
         launch(args);
     }
 }
+*/
+

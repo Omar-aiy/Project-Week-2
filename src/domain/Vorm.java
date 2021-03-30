@@ -6,12 +6,6 @@ public abstract class Vorm  implements Drawable {
     private Color kleur;
     private boolean isZichtbaar;
 
-    public Vorm (Color kleur, boolean iszichtbaar){
-        setKleur(kleur);
-    }
-    public Vorm(boolean isZichtbaar){
-        kleur= Color.WHITE;
-    }
 
     public Color getKleur() {
         return kleur;
@@ -21,13 +15,13 @@ public abstract class Vorm  implements Drawable {
         this.kleur = kleur;
     }
 
-
-    }
     public boolean isZichtbaar(){
-
+        return isZichtbaar;
     }
-    public void setZichtbaar(boolean zichtbaar){
 
+
+    public void setZichtbaar(boolean zichtbaar){
+        this.isZichtbaar = zichtbaar;
     }
 
     @Override

@@ -45,6 +45,7 @@ public class Omhullende {
     public int getMaximumY(){
         return LinkerBovenhoek.getY() + Hoogte;
     }
+
     public String toString(){
         return "Omhullende: " + getLinkerBovenhoek().toString() + " - " + getBreedte() + " - " + getHoogte();
     }

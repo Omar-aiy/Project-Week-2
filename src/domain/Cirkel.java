@@ -1,11 +1,12 @@
 package domain;
 
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 
 import java.awt.*;
 import java.util.Objects;
 
-public class Cirkel implements Drawable{
+public class Cirkel extends Vorm implements Drawable{
     private Punt middelPunt;
     private int radius;
 
@@ -33,6 +34,12 @@ public class Cirkel implements Drawable{
         this.radius = radius;
     }
 
+    public Omhullende getOmhullende(){
+        Punt punt= new Punt (middelPunt.getX()-radius, middelPunt.getY()-radius);
+        Omhullende a = new Omhullende(punt,radius*2, radius*2);
+        return a;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -41,6 +48,10 @@ public class Cirkel implements Drawable{
         return Double.compare(cirkel.radius, radius) == 0 && Objects.equals(middelPunt, cirkel.middelPunt);
     }
 
+
+
+
+
     @Override
     public String toString() {
         return "Cirkel met middelpunt " + getMiddelPunt().toString() + " en straal " + getRadius();
@@ -48,6 +59,7 @@ public class Cirkel implements Drawable{
 
     @Override
     public void teken(Pane root) {
+        //kleur en fx oproepen
 
     }
 }

@@ -19,20 +19,22 @@ public class VormMakenApp {
 
         root.add(keuzeMenu,0,1);
         keuzeMenu.setOnAction(eventKeuze -> {
-                    if (keuzeMenu.getValue() != null) {
-                        if (keuzeMenu.getValue().equals("Cirkel")) {
-                            new CirkelApp(root, tekening);
+            if (keuzeMenu.getValue() != null) {
+                if (keuzeMenu.getValue().equals("Cirkel")) {
+                    new CirkelApp(root);
 
-                        } else if (keuzeMenu.getValue().equals("Rechthoek")) {
-                            new RechthoekApp(root, tekening);
+                } else if (keuzeMenu.getValue().equals("Rechthoek")) {
+                    new RechthoekApp(root, tekening);
 
-                        } else if (keuzeMenu.getValue().equals("Lijnstuk")) {
-                            new LijnstukApp(root, tekening);
-                        } else if (keuzeMenu.getValue().equals("Driehoek")) {
-                            new DriehoekApp(root, tekening);
-                        }
-                        root.getChildren().remove(keuzeMenu);
-                    }
-                }
+                } else if (keuzeMenu.getValue().equals("Lijnstuk")) {
+                    new LijnstukApp(root, tekening);
+                } /*else if (keuzeMenu.getValue().equals("Driehoek")) {
+                    new DriehoekApp(root, tekening);
+                }*/
+                root.getChildren().remove(keuzeMenu);
+            }
+        });
+
+    }
 
 }

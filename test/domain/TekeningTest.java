@@ -1,7 +1,9 @@
 package domain;
-
+import javafx.scene.paint.Color;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.awt.*;
 
 import static org.junit.Assert.*;
 
@@ -17,8 +19,8 @@ public class TekeningTest {
 
     @Before
     public void setUp() {
-        gebouw = new Rechthoek(new Punt(100, 200), 200, 180);
-        dak = new Driehoek(new Punt(100, 200), new Punt(300, 200), new Punt(200, 100));
+        gebouw = new Rechthoek( new Punt(100, 200), 200, 180);
+        dak = new Driehoek( new Punt(100, 200), new Punt(300, 200), new Punt(200, 100));
         deur = new Rechthoek(new Punt(130, 280), 50,100);
         raam = new Rechthoek(new Punt(210, 220), 80, 60);
         deurknop = new Cirkel(new Punt(170, 320), 2);

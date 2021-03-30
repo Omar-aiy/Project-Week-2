@@ -1,8 +1,12 @@
 package domain;
 
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import org.w3c.dom.DOMException;
 
-public class Rechthoek {
+import java.util.Objects;
+
+public class Rechthoek extends Vorm {
     private Punt LinkerBovenhoek;
     private int Breedte;
     private int Hoogte;
@@ -24,6 +28,8 @@ public class Rechthoek {
             throw new DomainException("Cannot be less then zero");
         }
     }
+
+
 
     public Punt getLinkerBovenhoek() {
         return LinkerBovenhoek;
@@ -56,4 +62,19 @@ public class Rechthoek {
             }
         }
      }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Rechthoek)) return false;
+        Rechthoek rechthoek = (Rechthoek) o;
+        return Breedte == rechthoek.Breedte &&
+                Hoogte == rechthoek.Hoogte &&
+                Objects.equals(LinkerBovenhoek, rechthoek.LinkerBovenhoek);
+    }
+
+    @Override
+    public void teken(Pane root) {
+
+    }
 }

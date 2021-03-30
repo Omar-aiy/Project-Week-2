@@ -1,4 +1,4 @@
-package domain;
+/*package domain;
 
 
 import java.lang.reflect.Array;
@@ -32,3 +32,5 @@ public class HintWoord {
                 '}';
     }
 }
+*/
+

@@ -3,12 +3,11 @@ package ui;
 import domain.Tekening;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 
-import java.awt.*;
+
+
 
 public class TekeningApp {
     private Label naamTekeningLabel;

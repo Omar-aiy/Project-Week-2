@@ -2,6 +2,7 @@ package ui;
 
 import domain.Punt;
 import domain.Rechthoek;
+import domain.Tekening;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -15,7 +16,7 @@ public class RechthoekApp {
 
         private Rechthoek rechthoek;
 
-        public RechthoekApp(GridPane root) {
+        public RechthoekApp(GridPane root, Tekening tekening) {
 
             invoerBreedteLabel = new Label("Geef de breedte van de rechthoek ");
             invoerBreedte = new TextField();

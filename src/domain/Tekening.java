@@ -2,6 +2,7 @@ package domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Tekening {
     private final String naam;
@@ -20,7 +21,7 @@ public class Tekening {
         this.vormen = new ArrayList<>();
     }
 
-    private boolean isValidNaam(String naam) {
+    public static boolean isValidNaam(String naam) {
         return naam == null || naam.trim().isEmpty();
     }
 
@@ -49,4 +50,22 @@ public class Tekening {
     public boolean bevat(Vorm vorm) {
         return this.vormen.stream().anyMatch(vorm1 -> vorm1 == vorm);
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Tekening)) return false;
+        Tekening tekening = (Tekening) o;
+        return Objects.equals(naam, tekening.naam) &&
+                Objects.equals(vormen, tekening.vormen);
+    }
+
+    @Override
+    public String toString() {
+        return "Tekening{" +
+                "naam='" + naam + '\'' +
+                ", vormen=" + vormen +
+                '}';
+    }
 }
+

@@ -3,6 +3,7 @@ package ui;
 
 import domain.LijnStuk;
 import domain.Punt;
+import domain.Tekening;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -14,18 +15,15 @@ public class LijnstukApp {
     private Punt punt2 = new Punt(69, 58);
     private LijnStuk lijnstuk;
 
-    public LijnstukApp(GridPane root) {
+    public LijnstukApp(GridPane root, Tekening tekening) {
         // Punt 1
 
         // Punt 2
 
-        this.punt1 = new PuntApp(root).getPunt();
-        root = new GridPane();
 
-        this.punt2 = new PuntApp(root).getPunt();
-
-        this.lijnstuk = new LijnStuk();
-        this.makeLijnstuk();
+    }
+    public LijnstukApp(GridPane root){
+        this(root,null);
     }
 
     public void makeLijnstuk() {

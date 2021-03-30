@@ -28,11 +28,11 @@ public class CirkelApp {
         root.add(invoerRadiusLabel,0,0);
         root.add(invoerRadius,1,0);
 
-        invoerRadius.setOnAction(eventIngaveX ->{
+        invoerRadius.setOnAction(eventIngaveRadius ->{
             try {
                 Integer.parseInt(invoerRadius.getText());
-                root.add(invoerRadiusLabel, 0, 1);
-                root.add(invoerRadius, 1, 1);
+                root.add(invoerXLabel, 0, 1);
+                root.add(invoerX, 1, 1);
             }
             catch(NumberFormatException e){
                 invoerX.clear();
@@ -44,14 +44,12 @@ public class CirkelApp {
 
 
 
-        root.add(invoerXLabel,0,0);
-        root.add(invoerX,1,0);
 
         invoerX.setOnAction(eventIngaveX ->{
             try {
                 Integer.parseInt(invoerX.getText());
-                root.add(invoerYLabel, 0, 1);
-                root.add(invoerY, 1, 1);
+                root.add(invoerYLabel, 0, 2);
+                root.add(invoerY, 1, 2);
             }
             catch(NumberFormatException e){
                 invoerX.clear();
