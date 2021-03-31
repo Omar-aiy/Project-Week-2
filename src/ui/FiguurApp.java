@@ -17,7 +17,7 @@ public class FiguurApp {
         root.add(keuzeMenu,0,0);
         keuzeMenu.setOnAction(eventKeuze -> {
             keuzeMenu.setVisible(false);
-            /*if (keuzeMenu.getValue()!=null){
+            if (keuzeMenu.getValue()!=null){
                 if (keuzeMenu.getValue().equals("Cirkel")) {
                     new CirkelApp(root);
 
@@ -25,7 +25,7 @@ public class FiguurApp {
                     new RechthoekApp(root);
                 }
 
-            }*/
+            }
         });
     }
 }

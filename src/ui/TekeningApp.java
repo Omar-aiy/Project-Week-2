@@ -48,6 +48,7 @@ public class TekeningApp {
             }});
 
         keuzeMenu.setOnAction(eventKeuze -> {
+            root.getChildren().clear();
             uitvoer.setVisible(false);
             if (keuzeMenu.getValue() != null) {
 

@@ -15,19 +15,23 @@ public class Tekening {
     public static final int MAX_Y = 399;
 
     public Tekening(String naam) {
-        if (!isValidNaam(naam)) throw new DomainException();
+        if (!isValidNaam(naam)) throw new IllegalArgumentException();
         this.naam = naam;
 
         this.vormen = new ArrayList<>();
     }
 
     public static boolean isValidNaam(String naam) {
-        return naam == null || naam.trim().isEmpty();
+        return naam != null && !naam.trim().isEmpty();
     }
 
     public void voegToe(Vorm vorm) {
         if (vorm == null || this.bevat(vorm))
+            throw new IllegalArgumentException();
+
+        if (MIN_X > vorm.getOmhullende().getMinimumX())
             throw new DomainException();
+
         this.vormen.add(vorm);
     }
 
@@ -56,8 +60,14 @@ public class Tekening {
         if (this == o) return true;
         if (!(o instanceof Tekening)) return false;
         Tekening tekening = (Tekening) o;
-        return Objects.equals(naam, tekening.naam) &&
-                Objects.equals(vormen, tekening.vormen);
+        return this.getAantalVormen() == tekening.getAantalVormen() && this.checkVormPerVorm(tekening);
+    }
+
+    private boolean checkVormPerVorm(Tekening tekening) {
+        for (Vorm vorm : vormen) {
+            if (!tekening.bevat(vorm)) return false;
+        }
+        return true;
     }
 
     @Override

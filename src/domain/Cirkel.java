@@ -3,7 +3,6 @@ package domain;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 
-import java.awt.*;
 import java.util.Objects;
 
 public class Cirkel extends Vorm implements Drawable{

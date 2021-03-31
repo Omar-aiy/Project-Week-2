@@ -56,4 +56,8 @@ public class PuntApp {
             }
         });
     }
+
+    public Punt getPunt() {
+        return punt;
+    }
 }

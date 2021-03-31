@@ -16,7 +16,7 @@ public class RechthoekApp {
 
         private Rechthoek rechthoek;
 
-        public RechthoekApp(GridPane root, Tekening tekening) {
+        public RechthoekApp(GridPane root) {
 
             invoerBreedteLabel = new Label("Geef de breedte van de rechthoek ");
             invoerBreedte = new TextField();
@@ -35,7 +35,7 @@ public class RechthoekApp {
                 try {
                     Integer.parseInt(invoerBreedteLabel.getText());
                     root.add(invoerHoogteLabel, 0, 1);
-                    root.add(invoerHoogte, 1, 1);
+                    root.add(invoerHoogte, 0, 2);
                 }
                 catch(NumberFormatException e){
                     invoerX.clear();
@@ -45,14 +45,14 @@ public class RechthoekApp {
                 }
             });
 
-            root.add(invoerHoogteLabel,0,0);
-            root.add(invoerHoogte,1,0);
+            root.add(invoerHoogteLabel,0,2);
+            root.add(invoerHoogte,1,2);
 
             invoerBreedte.setOnAction(eventIngaveX ->{
                 try {
                     Integer.parseInt(invoerHoogteLabel.getText());
-                    root.add(invoerBreedteLabel, 0, 1);
-                    root.add(invoerBreedte, 1, 1);
+                    root.add(invoerBreedteLabel, 0, 3);
+                    root.add(invoerBreedte, 1, 3);
                 }
                 catch(NumberFormatException e){
                     invoerX.clear();
@@ -62,14 +62,14 @@ public class RechthoekApp {
                 }
             });
 
-            root.add(invoerXLabel,0,0);
-            root.add(invoerX,1,0);
+            root.add(invoerXLabel,0,4);
+            root.add(invoerX,1,4);
 
             invoerX.setOnAction(eventIngaveX ->{
                 try {
                     Integer.parseInt(invoerX.getText());
-                    root.add(invoerYLabel, 0, 1);
-                    root.add(invoerY, 1, 1);
+                    root.add(invoerYLabel, 0, 5);
+                    root.add(invoerY, 1, 5);
                 }
                 catch(NumberFormatException e){
                     invoerX.clear();

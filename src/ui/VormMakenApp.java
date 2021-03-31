@@ -24,7 +24,7 @@ public class VormMakenApp {
                     new CirkelApp(root);
 
                 } else if (keuzeMenu.getValue().equals("Rechthoek")) {
-                    new RechthoekApp(root, tekening);
+                    new RechthoekApp(root);
 
                 } else if (keuzeMenu.getValue().equals("Lijnstuk")) {
                     new LijnstukApp(root, tekening);

@@ -39,6 +39,7 @@ public class Rechthoek extends Vorm {
         return Breedte;
     }
 
+    @Override
     public Omhullende getOmhullende(){
         Omhullende a = new Omhullende(LinkerBovenhoek,Breedte,Hoogte);
         return a;

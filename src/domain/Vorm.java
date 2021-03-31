@@ -19,6 +19,7 @@ public abstract class Vorm  implements Drawable {
         return isZichtbaar;
     }
 
+    protected abstract Omhullende getOmhullende();
 
     public void setZichtbaar(boolean zichtbaar){
         this.isZichtbaar = zichtbaar;
