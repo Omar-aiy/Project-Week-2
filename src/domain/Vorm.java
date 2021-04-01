@@ -1,9 +1,11 @@
 package domain;
+import javafx.scene.Node;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import java.awt.*;
 
 public abstract class Vorm  implements Drawable {
-    private Color kleur;
+    private Color kleur= Color.WHITE;
     private boolean isZichtbaar;
 
 
@@ -31,4 +33,7 @@ public abstract class Vorm  implements Drawable {
                 "kleur=" + kleur +
                 '}';
     }
+    @Override
+    public abstract Node teken(Pane root);
+
 }

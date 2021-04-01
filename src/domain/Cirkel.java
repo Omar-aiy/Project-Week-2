@@ -1,7 +1,9 @@
 package domain;
 
+import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 
 import java.util.Objects;
 
@@ -57,8 +59,11 @@ public class Cirkel extends Vorm implements Drawable{
     }
 
     @Override
-    public void teken(Pane root) {
-        //kleur en fx oproepen
+    public Node teken(Pane root) {
+        Punt middelpunt= new Punt(2,3);
+      Cirkel hoofd = new Cirkel(middelpunt,3);
+      hoofd.setKleur(Color.PINK);
 
+      return hoofd;
     }
 }

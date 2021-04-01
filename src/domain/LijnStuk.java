@@ -1,4 +1,5 @@
 package domain;
+import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 
@@ -50,7 +51,7 @@ public class LijnStuk extends Vorm {
     }
 
     @Override
-    public void teken(Pane root) {
+    public Node teken(Pane root) {
 
     }
 }

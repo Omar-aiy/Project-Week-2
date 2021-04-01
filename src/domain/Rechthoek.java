@@ -1,8 +1,7 @@
 package domain;
 
+import javafx.scene.Node;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
-import org.w3c.dom.DOMException;
 
 import java.util.Objects;
 
@@ -75,7 +74,8 @@ public class Rechthoek extends Vorm {
     }
 
     @Override
-    public void teken(Pane root) {
+    public Node teken(Pane root) {
+
 
     }
 }

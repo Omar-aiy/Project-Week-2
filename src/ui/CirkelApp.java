@@ -13,7 +13,7 @@ public class CirkelApp {
     private TextField invoerX, invoerY, invoerRadius;
     private Alert foutenboodschap = new Alert(Alert.AlertType.WARNING);
 
-    private Cirkel cirkel;
+    private Vorm cirkel;
 
     public CirkelApp(GridPane root) {
 
@@ -41,9 +41,44 @@ public class CirkelApp {
                 foutenboodschap.showAndWait();
             }
         });
+         public CirkelApp(GridPane root, Tekening tekening) {
+            init(root,1);
+            invoerRadius.setOnAction(eventIngaveStraal -> {
+                try {
+                    Punt middelpunt = new Punt(Integer.parseInt(invoerX.getText()),Integer.parseInt(invoerY.getText()));
+                    cirkel = new Cirkel(middelpunt, Integer.parseInt(invoerRadius.getText()));
+                    tekening.voegToe(cirkel);
+                    delete(root);
+
+                } catch (NumberFormatException ne){
+                    invoerStraal.clear();
+                    foutenboodschap.setTitle("Warning");
+                    foutenboodschap.setContentText("straal van de cirkel moet een geheel getal zijn");
+                    foutenboodschap.showAndWait();
+                }
+                catch (DomainException e){
+                    delete(root);
+                    foutenboodschap.setTitle("Warning");
+                    foutenboodschap.setHeaderText(null);
+                    foutenboodschap.setContentText(e.getMessage());
+                    foutenboodschap.showAndWait();
+                }
+
+            });
 
 
+            private void init(GridPane root, int teller){
+                invoerXLabel =  new Label("Geef de x-coördinaat van het middelpunt van de cirkel ");
+                invoerX= new TextField();
 
+                invoerYLabel = new Label("Geef de y-coördinaat van het middelpunt van de cirkel ");
+                invoerY = new TextField();
+
+                invoerRadiusLabel = new Label("Geef de straal van de cirkel");
+                invoerRadius = new TextField();
+
+                root.add(invoerXLabel,0,teller);
+                root.add(invoerX,1,teller);
 
         invoerX.setOnAction(eventIngaveX ->{
             try {
@@ -76,7 +111,16 @@ public class CirkelApp {
                 foutenboodschap.showAndWait();
             }
         });
-    }
+
+            private void  delete(GridPane root){
+                root.getChildren().remove(invoerXLabel);
+                root.getChildren().remove(invoerX);
+                root.getChildren().remove(invoerYLabel);
+                root.getChildren().remove(invoerY);
+                root.getChildren().remove(invoerRadiusLabel);
+                root.getChildren().remove(invoerRadius);
+
+            }
 }
 
 
