@@ -16,7 +16,7 @@ public class LijnstukApp {
     private LijnStuk lijnstuk;
 
     public LijnstukApp(GridPane root, Tekening tekening) {
-        // Punt 1
+
 
         // Punt 2
 

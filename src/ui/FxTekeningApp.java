@@ -10,10 +10,10 @@ public class FxTekeningApp extends Application {
     @Override
     public void start(Stage primaryStage) {
         GridPane root = new GridPane();
-        Scene scene = new Scene(root);
+        Scene scene = new Scene(root, 700,500);
         new TekeningApp(root);
         primaryStage.setScene(scene);
-        primaryStage.setTitle("Almost hangman :) ");
+        primaryStage.setTitle("Almost hangwoman :) ");
         primaryStage.show();
     }
 

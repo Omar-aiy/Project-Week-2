@@ -8,9 +8,11 @@ public class WoordenLijst {
     public WoordenLijst() {
         this.geldigeWoorden = new ArrayList<>();
     }
+
     public int getAantalWoorden(){
         return geldigeWoorden.size();
     }
+
     public void voegToe(String newWoord){
         if (newWoord == null || newWoord.trim().isEmpty()){
             throw new DomainException("newWoord cannot not be empty");
@@ -26,4 +28,8 @@ public class WoordenLijst {
     public ArrayList<String> getGeldigeWoorden() {
         return geldigeWoorden;
     }
+
+
+
+
 }

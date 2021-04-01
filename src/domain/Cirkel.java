@@ -11,6 +11,7 @@ public class Cirkel extends Vorm {
     private Punt middelPunt;
     private int radius;
 
+
     public Cirkel(Punt middelpunt, int straal) {
         if (middelpunt == null) throw new DomainException();
         if (straal <= 0) throw new DomainException();
@@ -58,8 +59,9 @@ public class Cirkel extends Vorm {
     @Override
     public void teken(Pane root) {
         Circle c = new Circle(this.getMiddelPunt().getX(), this.getMiddelPunt().getY(), this.getRadius());
-        c.setFill(this.getKleur());
+        c.setFill(Color.PINK);
         c.setStroke(Color.BLACK);
         root.getChildren().add(c);
+
     }
 }

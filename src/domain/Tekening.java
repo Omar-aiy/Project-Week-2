@@ -42,10 +42,12 @@ public class Tekening implements Drawable{
     }
 
     public int getAantalVormen() {
+
         return this.vormen.size();
     }
 
     public void verwijder(Vorm vorm) {
+
         this.vormen.remove(vorm);
     }
 
