@@ -27,13 +27,6 @@ public abstract class Vorm  implements Drawable {
         this.isZichtbaar = zichtbaar;
     }
 
-    @Override
-    public String toString() {
-        return "Vorm{" +
-                "kleur=" + kleur +
-                '}';
-    }
-    @Override
-    public abstract Node teken(Pane root);
+
 
 }

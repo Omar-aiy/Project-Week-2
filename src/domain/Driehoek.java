@@ -4,6 +4,7 @@ package domain;
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Polyline;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -11,31 +12,27 @@ import java.util.List;
 
 public class Driehoek extends Vorm {
     private Punt hoekPunt1, hoekPunt2, hoekPunt3;
-    private List<Integer> puntList;
-
 
     public Driehoek(Punt hoekPunt1, Punt hoekPunt2, Punt hoekPunt3) {
+        if (hoekPunt1 == null ||hoekPunt2 == null || hoekPunt3 == null) throw new DomainException();
+        if (liggenOp1Lijn(hoekPunt1,hoekPunt2,hoekPunt3)) throw new DomainException();
 
-        this.hoekPunt1 = this.validatePunt(hoekPunt1);
-        this.hoekPunt2 = this.validatePunt(hoekPunt2);
-        this.hoekPunt3 = this.validatePunt(hoekPunt3);
+        this.hoekPunt1 =hoekPunt1;
+        this.hoekPunt2 = hoekPunt2;
+        this.hoekPunt3 = hoekPunt3;
+        this.sorteerHoekpunten();
 
-        this.puntList = new ArrayList<>();
-        puntList.add(getHoekPunt1().getX());
-        puntList.add(getHoekPunt2().getX());
-        puntList.add(getHoekPunt3().getX());
-    }
-
-
-
-
-    private Punt validatePunt(Punt punt) {
-        if (punt == null) throw new DomainException();
-        return punt;
     }
 
     private void sorteerHoekpunten() {
-        Collections.sort(this.puntList);
+        List<Punt> puntList = new ArrayList<>();
+        puntList.add(hoekPunt1);
+        puntList.add(hoekPunt2);
+        puntList.add(hoekPunt3);
+        Collections.sort(puntList);
+        this.hoekPunt1 = puntList.get(0);
+        this.hoekPunt2 = puntList.get(1);
+        this.hoekPunt3 = puntList.get(2);
     }
 
     private static boolean liggenOp1Lijn(Punt hoekPunt1, Punt hoekPunt2, Punt hoekPunt3) {
@@ -79,7 +76,12 @@ public class Driehoek extends Vorm {
     }
 
     @Override
-    public Node teken(Pane root) {
-
+    public void teken(Pane root) {
+        Polyline driehoekDak = new Polyline();
+        driehoekDak.setFill(this.getKleur());
+        driehoekDak.setStroke(Color.BLACK);
+        driehoekDak.getPoints().addAll((double) this.getHoekPunt1().getX(), (double) this.getHoekPunt1().getY(), (double) this.getHoekPunt2().getX(),
+                (double) this.getHoekPunt2().getY(), (double) this.getHoekPunt3().getX(), (double) this.getHoekPunt3().getY(),(double) this.getHoekPunt1().getX(), (double) this.getHoekPunt1().getY());
+        root.getChildren().add(driehoekDak);
     }
 }

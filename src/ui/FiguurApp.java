@@ -23,8 +23,11 @@ public class FiguurApp {
 
                 } else if (keuzeMenu.getValue().equals("Rechthoek")) {
                     new RechthoekApp(root);
+                } else if (keuzeMenu.getValue().equals("Driehoek")){
+                    new DriehoekApp(root);
+                } else if (keuzeMenu.getValue().equals("Lijnstuk")) {
+                    new LijnstukApp(root);
                 }
-
             }
         });
     }

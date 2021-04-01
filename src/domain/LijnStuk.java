@@ -2,13 +2,11 @@ package domain;
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Line;
 
 public class LijnStuk extends Vorm {
     private Punt startPunt;
     private Punt eindPunt;
-
-
-
 
     public LijnStuk( Punt startPunt, Punt eindPunt) {
 
@@ -51,7 +49,10 @@ public class LijnStuk extends Vorm {
     }
 
     @Override
-    public Node teken(Pane root) {
-
+    public void teken(Pane root) {
+        Line lijnBoomstam = new Line(this.getStartPunt().getX(), this.getStartPunt().getY(), this.getEindPunt().getX(), this.getEindPunt().getY());
+        lijnBoomstam.setStrokeWidth(5);
+        lijnBoomstam.setStroke(Color.BLACK);
+        root.getChildren().add(lijnBoomstam);
     }
 }

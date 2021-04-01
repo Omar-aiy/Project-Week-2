@@ -1,10 +1,12 @@
 package domain;
 
+import javafx.scene.layout.Pane;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Tekening {
+public class Tekening implements Drawable{
     private final String naam;
     private List<Vorm> vormen;
 
@@ -76,6 +78,13 @@ public class Tekening {
                 "naam='" + naam + '\'' +
                 ", vormen=" + vormen +
                 '}';
+    }
+
+    @Override
+    public void teken(Pane root) {
+        for (Vorm v: this.vormen){
+            v.teken(root);
+        }
     }
 }
 

@@ -2,6 +2,8 @@ package domain;
 
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 
 import java.util.Objects;
 
@@ -51,17 +53,6 @@ public class Rechthoek extends Vorm {
         return "Rechthoek: Linkerbovenhoek: " + getLinkerBovenhoek().toString() + " - breedte: " + getBreedte() + " - hoogte: " + getHoogte() + "\n" + getOmhullende().toString();
      }
 
-     public boolean equals(Rechthoek a){
-        if (a == null){
-            return false;
-        } else {
-            if (a.getHoogte() == Hoogte && a.getBreedte() == Breedte && a.getLinkerBovenhoek().equals(LinkerBovenhoek)){
-                return true;
-            } else {
-                return false;
-            }
-        }
-     }
 
     @Override
     public boolean equals(Object o) {
@@ -74,8 +65,12 @@ public class Rechthoek extends Vorm {
     }
 
     @Override
-    public Node teken(Pane root) {
+    public void teken(Pane root) {
+        Rectangle rechthoekGebouw = new Rectangle(this.getLinkerBovenhoek().getX(), this.getLinkerBovenhoek().getY(), this.getBreedte(), this.getHoogte());
+        rechthoekGebouw.setFill(this.getKleur());
+        rechthoekGebouw.setStroke(Color.BLACK);
 
+        root.getChildren().add(rechthoekGebouw);
 
     }
 }

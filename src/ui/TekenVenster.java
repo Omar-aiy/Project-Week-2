@@ -35,7 +35,7 @@ public class TekenVenster {
         driehoekDak.setFill(Color.RED);
         driehoekDak.setStroke(Color.BLACK);
         driehoekDak.getPoints().addAll(new Double[]{(double) dak.getHoekPunt1().getX(), (double) dak.getHoekPunt1().getY(), (double) dak.getHoekPunt2().getX(),
-                (double) dak.getHoekPunt2().getY(), (double) dak.getHoekPunt3().getX(), (double) dak.getHoekPunt3().getY()});
+                (double) dak.getHoekPunt2().getY(), (double) dak.getHoekPunt3().getX(), (double) dak.getHoekPunt3().getY(),(double) dak.getHoekPunt1().getX(), (double) dak.getHoekPunt1().getY()});
 
         root.getChildren().addAll(cirkelBoomKruin, lijnBoomstam, rechthoekGebouw, driehoekDak);
 

@@ -7,7 +7,7 @@ import javafx.scene.shape.Circle;
 
 import java.util.Objects;
 
-public class Cirkel extends Vorm implements Drawable{
+public class Cirkel extends Vorm {
     private Punt middelPunt;
     private int radius;
 
@@ -50,20 +50,16 @@ public class Cirkel extends Vorm implements Drawable{
     }
 
 
-
-
-
     @Override
     public String toString() {
         return "Cirkel met middelpunt " + getMiddelPunt().toString() + " en straal " + getRadius();
     }
 
     @Override
-    public Node teken(Pane root) {
-        Punt middelpunt= new Punt(2,3);
-      Cirkel hoofd = new Cirkel(middelpunt,3);
-      hoofd.setKleur(Color.PINK);
-
-      return hoofd;
+    public void teken(Pane root) {
+        Circle c = new Circle(this.getMiddelPunt().getX(), this.getMiddelPunt().getY(), this.getRadius());
+        c.setFill(this.getKleur());
+        c.setStroke(Color.BLACK);
+        root.getChildren().add(c);
     }
 }

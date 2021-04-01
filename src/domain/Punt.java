@@ -1,5 +1,5 @@
 package domain;
-public class Punt {
+public class Punt implements Comparable<Punt>{
     private int x;
     private int y;
 
@@ -27,5 +27,15 @@ public class Punt {
         String result = "";
         result += "(" + this.getX() + ", " + this.getY() + ")";
         return result;
+    }
+
+    @Override
+    public int compareTo(Punt anderPunt) {
+        if (anderPunt == null) return 1;
+        if (this.x < anderPunt.x) return -1;
+        else if (this.x > anderPunt.x) return 1;
+        else if (this.y < anderPunt.y) return -1;
+        else if (this.y > anderPunt.y) return  1;
+        else return 0;
     }
 }

@@ -17,110 +17,99 @@ public class CirkelApp {
 
     public CirkelApp(GridPane root) {
 
+
+
         invoerXLabel = new Label("Geef de x-coördinaat van het middelpunt van de cirkel");
         invoerX = new TextField();
         invoerYLabel = new Label("Geef de y-coördinaat van het middelpunt van de cirkel");
         invoerY = new TextField();
-        invoerRadiusLabel =  new Label("Geef de straal van de cirkel");
-        invoerRadius= new TextField();
+        invoerRadiusLabel = new Label("Geef de straal van de cirkel");
+        invoerRadius = new TextField();
 
 
-        root.add(invoerRadiusLabel,0,0);
-        root.add(invoerRadius,1,0);
+        root.add(invoerRadiusLabel, 0, 0);
+        root.add(invoerRadius, 1, 0);
 
-        invoerRadius.setOnAction(eventIngaveRadius ->{
+        invoerRadius.setOnAction(eventIngaveRadius -> {
             try {
                 Integer.parseInt(invoerRadius.getText());
                 root.add(invoerXLabel, 0, 1);
                 root.add(invoerX, 1, 1);
-            }
-            catch(NumberFormatException e){
+            } catch (NumberFormatException e) {
                 invoerX.clear();
                 foutenboodschap.setTitle("Warning");
                 foutenboodschap.setContentText("straal moet een geheel getal zijn");
                 foutenboodschap.showAndWait();
             }
         });
-         public CirkelApp(GridPane root, Tekening tekening) {
-            init(root,1);
-            invoerRadius.setOnAction(eventIngaveStraal -> {
-                try {
-                    Punt middelpunt = new Punt(Integer.parseInt(invoerX.getText()),Integer.parseInt(invoerY.getText()));
-                    cirkel = new Cirkel(middelpunt, Integer.parseInt(invoerRadius.getText()));
-                    tekening.voegToe(cirkel);
-                    delete(root);
-
-                } catch (NumberFormatException ne){
-                    invoerStraal.clear();
-                    foutenboodschap.setTitle("Warning");
-                    foutenboodschap.setContentText("straal van de cirkel moet een geheel getal zijn");
-                    foutenboodschap.showAndWait();
-                }
-                catch (DomainException e){
-                    delete(root);
-                    foutenboodschap.setTitle("Warning");
-                    foutenboodschap.setHeaderText(null);
-                    foutenboodschap.setContentText(e.getMessage());
-                    foutenboodschap.showAndWait();
-                }
-
-            });
 
 
-            private void init(GridPane root, int teller){
-                invoerXLabel =  new Label("Geef de x-coördinaat van het middelpunt van de cirkel ");
-                invoerX= new TextField();
 
-                invoerYLabel = new Label("Geef de y-coördinaat van het middelpunt van de cirkel ");
-                invoerY = new TextField();
+                invoerX.setOnAction(eventIngaveX -> {
+                    try {
+                        Integer.parseInt(invoerX.getText());
+                        root.add(invoerYLabel, 0, 2);
+                        root.add(invoerY, 1, 2);
+                    } catch (NumberFormatException e) {
+                        invoerX.clear();
+                        foutenboodschap.setTitle("Warning");
+                        foutenboodschap.setContentText("x coördinaat moet een geheel getal zijn");
+                        foutenboodschap.showAndWait();
+                    }
+                });
 
-                invoerRadiusLabel = new Label("Geef de straal van de cirkel");
-                invoerRadius = new TextField();
+                invoerY.setOnAction(eventIngaveY -> {
+                    try {
+                        cirkel = new Cirkel((new Punt(Integer.parseInt(invoerX.getText()), Integer.parseInt(invoerY.getText()))), Integer.parseInt(invoerRadius.getText()));
+                        root.getChildren().clear();
 
-                root.add(invoerXLabel,0,teller);
-                root.add(invoerX,1,teller);
+                        Text uitvoer = new Text();
+                        uitvoer.setText(cirkel.toString());
+                        root.add(uitvoer, 0, 0);
+                    } catch (NumberFormatException e) {
 
-        invoerX.setOnAction(eventIngaveX ->{
-            try {
-                Integer.parseInt(invoerX.getText());
-                root.add(invoerYLabel, 0, 2);
-                root.add(invoerY, 1, 2);
+                        invoerY.clear();
+
+                        foutenboodschap.setTitle("Warning");
+                        foutenboodschap.setContentText("y coördinaat moet een geheel getal zijn");
+                        foutenboodschap.showAndWait();
+                    }
+                });
             }
-            catch(NumberFormatException e){
-                invoerX.clear();
+    public CirkelApp(GridPane root, Tekening tekening) {
+
+        invoerRadius.setOnAction(eventIngaveStraal -> {
+            try {
+                Punt middelpunt = new Punt(Integer.parseInt(invoerX.getText()),Integer.parseInt(invoerY.getText()));
+                cirkel = new Cirkel(middelpunt, Integer.parseInt(invoerRadius.getText()));
+                tekening.voegToe(cirkel);
+                verwijder(root);
+
+            } catch (NumberFormatException ne){
+                invoerRadius.clear();
                 foutenboodschap.setTitle("Warning");
-                foutenboodschap.setContentText("x coördinaat moet een geheel getal zijn");
+                foutenboodschap.setContentText("straal van de cirkel moet een geheel getal zijn");
                 foutenboodschap.showAndWait();
             }
-        });
-
-        invoerY.setOnAction(eventIngaveY -> {
-            try {
-                cirkel = new Cirkel((new Punt(Integer.parseInt(invoerX.getText()), Integer.parseInt(invoerY.getText()))),Integer.parseInt(invoerRadius.getText()));
-                root.getChildren().clear();
-
-                Text uitvoer = new Text();
-                uitvoer.setText(cirkel.toString());
-                root.add(uitvoer, 0, 0);
-            } catch(NumberFormatException e){
-
-                invoerY.clear();
-
+            catch (DomainException e){
+                verwijder(root);
                 foutenboodschap.setTitle("Warning");
-                foutenboodschap.setContentText("y coördinaat moet een geheel getal zijn");
+                foutenboodschap.setHeaderText(null);
+                foutenboodschap.setContentText(e.getMessage());
                 foutenboodschap.showAndWait();
             }
+
         });
+    }
+    private void  verwijder(GridPane root){
+        root.getChildren().remove(invoerXLabel);
+        root.getChildren().remove(invoerX);
+        root.getChildren().remove(invoerYLabel);
+        root.getChildren().remove(invoerY);
+        root.getChildren().remove(invoerRadiusLabel);
+        root.getChildren().remove(invoerRadius);
 
-            private void  delete(GridPane root){
-                root.getChildren().remove(invoerXLabel);
-                root.getChildren().remove(invoerX);
-                root.getChildren().remove(invoerYLabel);
-                root.getChildren().remove(invoerY);
-                root.getChildren().remove(invoerRadiusLabel);
-                root.getChildren().remove(invoerRadius);
-
-            }
+    }
 }
 
 
