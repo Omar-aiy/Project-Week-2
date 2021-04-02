@@ -3,7 +3,6 @@ package ui;
 import domain.HangMan;
 import domain.Speler;
 import domain.WoordenLijst;
-//import domain.TekenVenster;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -47,14 +46,14 @@ public class HangManApp {
                 raadButton.setDisable(true);
                 hbox.getChildren().clear();
                 invoerBox.getChildren().clear();
-                hintwoordUitvoer.setText("dikken bal! " + speler.getNaam() + "  ge hebt het in " + aantal + " stappen gefixt");
+                hintwoordUitvoer.setText("Goed gedaan " + speler.getNaam() + " je hebt het woord geraden in " + aantal + " stappen!!");
                 hbox.getChildren().add(hintwoordUitvoer);
             }
             else if (hangman.isGameOver()){
                 raadButton.setDisable(true);
                 hbox.getChildren().clear();
                 invoerBox.getChildren().clear();
-                hintwoordUitvoer.setText("Jammer joh " + speler.getNaam() + " pak uw zakdoekje maar");
+                hintwoordUitvoer.setText("Jammer " + speler.getNaam() + " je hebt het woord niet geraden!!");
                 hbox.getChildren().add(hintwoordUitvoer);
             }
             else{
@@ -69,6 +68,7 @@ public class HangManApp {
                 hintwoordUitvoer.setText(this.hangman.getHint());
             }
             else {
+                System.out.println("test");
                 this.tekening = new TekenVenster(pane,this.hangman.getTekening());
             }
             invoerBox.setDisable(true);

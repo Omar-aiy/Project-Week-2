@@ -8,22 +8,26 @@ public class HangMan {
     private TekeningHangMan tekeningHangMan;
     private WoordenLijst woordenLijst;
     private HintWoord hintWoord;
-    private boolean gewonnen;
-    Pane root;
+
+
 
     public HangMan(Speler speler, WoordenLijst woordenLijst) {
         if (speler==null) throw new DomainException("Speler mag niet null zijn");
         if (woordenLijst==null) throw new DomainException("Woordenlijst mag niet null zijn");
         if (woordenLijst.getAantalWoorden()==0) throw new DomainException("Woordenlijst mag niet leeg zijn");
         this.speler = speler;
-        this.tekeningHangMan = new TekeningHangMan("hangman");
+        this.tekeningHangMan = new TekeningHangMan("hangwoman");
         this.woordenLijst = woordenLijst;
         this.hintWoord = new HintWoord(woordenLijst.getRandomWoord());
-        this.gewonnen=false;
+
     }
 
     public Speler getSpeler() {
         return speler;
+    }
+
+    public boolean isGameOver(){
+        return tekeningHangMan.getAantalOnzichtbaar() == 0;
     }
 
     public TekeningHangMan getTekening() {
@@ -35,15 +39,16 @@ public class HangMan {
     }
 
     public boolean isGewonnen() {
-        return gewonnen;
+        return hintWoord.isGeraden();
     }
 
-    public boolean isGameOver() {
-        return !gewonnen;
-    }
+
 
     public boolean raad(char letter) {
-        return true;
+        boolean geraden = hintWoord.raad(letter);
+        if (!geraden) tekeningHangMan.zetVolgendeZichtbaar();
+        return geraden;
+
     }
 
 }
